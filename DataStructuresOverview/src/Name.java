@@ -26,7 +26,8 @@ public class Name implements Comparable<Name> {
 	}
 	
 	public String toString() {
-		return first + " " + last;
+		//return first + " " + last;
+		return last + ", " + first;
 	}
 	
 //	@Override

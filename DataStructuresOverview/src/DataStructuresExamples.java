@@ -5,7 +5,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class DataStructuresExamples {
-
+	
 	/**
 	 * List data structure implemented using an array.
 	 */
@@ -32,19 +32,17 @@ public class DataStructuresExamples {
 		names.put("bob", new Name("Bob", "Smith2"));		
 		for(String name: names.keySet()) {
 			System.out.println(name + " " + names.get(name));
-		}
-	
+		}	
 	}
-
 	/**
 	 * TreeMap provides key/value mapping but maintains sorted key set.
 	 */
 	public static void tryTreeMap() {		
 		TreeMap<String, Name> names = new TreeMap<>();
-		names.put("bob", new Name("Bob", "Smith"));
+		names.put("bob", new Name("Bob", "Smith1"));
 		names.put("sally", new Name("Sally", "Sue"));
 		names.put("herb", new Name("Herb", "Jones"));
-		names.put("bob", new Name("Bob", "Smith"));		
+		names.put("bob", new Name("Bob", "Smith2"));		
 		for(String name: names.keySet()) {
 			System.out.println(name + " " + names.get(name));
 		}
@@ -69,23 +67,23 @@ public class DataStructuresExamples {
 	 */
 	public static void tryLinkedHashMap() {
 		LinkedHashMap<String, Name> names = new LinkedHashMap<>();
-		names.put("bob", new Name("Bob", "Smith"));
+		names.put("bob", new Name("Bob", "Smith1"));
 		names.put("herb", new Name("Herb", "Jones"));
-		names.put("bob", new Name("Bob", "Smith"));		
+		names.put("bob", new Name("Bob", "Smith2"));		
 		names.put("sally", new Name("Sally", "Sue"));
-		System.out.println(names);				
+		System.out.println(names.toString());				
 	}
 	
 	
 	public static void main(String[] args) {
-		System.out.println("****** - ArrayList - ******");
-		tryArrayList();
-		System.out.println("****** - HashMap - ******");
-		tryHashMap();
-		System.out.println("****** - TreeMap - ******");
-		tryTreeMap();
-		System.out.println("****** - TreeSet - ******");
-		tryTreeSet();
+//		System.out.println("****** - ArrayList - ******");
+//		tryArrayList();
+//		System.out.println("****** - HashMap - ******");
+//		tryHashMap();
+//		System.out.println("****** - TreeMap - ******");
+//		tryTreeMap();
+//		System.out.println("****** - TreeSet - ******");
+//		tryTreeSet();
 		System.out.println("****** - LinkedHashMap - ******");
 		tryLinkedHashMap();
 	}
