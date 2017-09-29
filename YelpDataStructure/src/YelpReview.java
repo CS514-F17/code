@@ -72,6 +72,10 @@ public class YelpReview {
 
 	public int getCool() {
 		return cool;
+	}	
+	
+	public void setCool(int cool) {
+		this.cool = cool;
 	}
 
 	@Override

@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
 public class YelpReviews {
 
@@ -15,19 +17,62 @@ public class YelpReviews {
 			"cool":0 
 		}
 	 */
-	
+
 	//TODO: define data structure(s) to store data
-	
+	private HashMap<String, YelpReview> byReviewId;
+
+	private HashMap<String,  ArrayList<YelpReview>> byBusinessId;
+
+	public YelpReviews() {
+		byReviewId = new HashMap<String, YelpReview>();
+	}
+
 	public void addReview(YelpReview review) {
-		
+		//TODO: check to see if the key already exists?
+		byReviewId.put(review.getReviewId(), review);
+
+		//TODO: add to byBusinessId map
+
+		String busId = review.getBusinessId();
+		if(this.byBusinessId.containsKey(busId)) {
+			
+			//get existing array list
+			//add review
+			//put it back?
+			ArrayList<YelpReview> list = this.byBusinessId.get(busId);
+			list.add(review);
+			
+			
+		} else {
+			ArrayList<YelpReview> list = new ArrayList<YelpReview>();
+			list.add(review);
+			byBusinessId.put(busId, list);
+		}
+
+
+
 	}
-	
+
 	public YelpReview getByReviewId(String reviewId) {
-		return null;
+		//TODO: what happens if review does not exist?
+		return byReviewId.get(reviewId);
 	}
-	
+
 	public ArrayList<YelpReview> getByBusinessId(String businessId) {
-		return null;
+
+		//Algorithm if I only have byReviewId data structure.
+		//for each value (review)
+		// if review has target businessId
+		//    add to a result list
+		//return result
+
+
+		//TODO: what happens if business does not exist?
+//		ArrayList<YelpReview> list = this.byBusinessId.get(businessId);
+//		Collections.sort(list);
+//		return list;
+		return this.byBusinessId.get(businessId);
+
 	}
 }
 
