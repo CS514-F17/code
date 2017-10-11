@@ -26,6 +26,29 @@ public class RecursionFun {
 
 	}
 
+	public static void printSquare(int n) {
+	
+		printSquare(0, n);
+		
+	}
+	
+	private static void printSquare(int current, int max) {
+	
+		//if I am at the last row
+		//	print the last row
+		//	return;
+		if(current == max) {
+			printNums(max);
+			return;
+		}		
+		
+		//print current row
+		//recursively call the method 
+		printNums(max);
+		System.out.println();
+		printSquare(current+1, max);
+	}
+	
 	public static void printNums(int n) {
 
 		//print numbers from 0-n without using a helper method
@@ -110,7 +133,9 @@ public class RecursionFun {
 		//		printNums(5);
 		//		printString("cat");
 //		System.out.println(countAs("dog"));
-		System.out.println(contains("cat", 't'));
+//		System.out.println(contains("cat", 't'));
+
+		printSquare(5);
 	}
 
 }
