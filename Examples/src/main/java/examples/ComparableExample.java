@@ -7,6 +7,12 @@ public class ComparableExample {
 
 	public static void main(String[] args) {
 
+		Comparable c1 = new String("Hello");
+		Comparable c2 = new String("Goodbye");
+		System.out.println(c1.compareTo(c2));
+		
+		System.out.println(c1.equals(c2));
+		
 //		//Sample code to demonstrate how the comareTo method
 //		//works in the String class.
 //		String s1 = "appleXYZ";
