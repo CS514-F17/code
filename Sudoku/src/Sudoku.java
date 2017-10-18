@@ -25,9 +25,11 @@ public class Sudoku {
 	private boolean checkSquares() {
 		
 		for(int r = 0; r < board.length; r += 3) {
-			for(int c  = 0; c < board[r].length; c += 3) {				
+			for(int c  = 0; c < board[r].length; c += 3) {		
+				
 				for(int i = 1; i <= 9; i++) {
 					boolean found = false;
+					
 					for(int j = r; j < r+3; j++) {
 						for(int k = c; k < c+3; k++) {
 							if(board[j][k] == i) {
@@ -54,7 +56,32 @@ public class Sudoku {
 	 */
 	private boolean checkRows() {
 		//TODO: Complete method
-		return false;		
+		//for every row - r
+		//	for every number 1-9 - i
+		//		found = false;
+		//		for every column in the row - c
+		//			if board[r][c] == i
+		//				found = true
+		//				break
+		//		if !found
+		//			return false
+		//return true;
+		
+		for(int r = 0; r < board.length; r++) {	//for every row		
+			for(int i = 1; i <= 9; i++) {
+				boolean found = false;
+				for(int c = 0; c < board[r].length; c++) { //for every column
+					if(board[r][c] == i) {
+						found = true;
+						break;
+					}
+				}
+				if(!found) {
+					return false;
+				}
+			}
+		}		
+		return true;		
 	}
 
 	/**
@@ -62,8 +89,23 @@ public class Sudoku {
 	 * @return
 	 */
 	private boolean checkCols() {
-		//TODO: Complete method
-		return false;
+		
+		for(int c = 0; c < board.length; c++) {	//for every column		
+			for(int i = 1; i <= 9; i++) {
+				boolean found = false;
+				for(int r = 0; r < board.length; r++) { //for row in column
+					if(board[r][c] == i) {
+						found = true;
+						break;
+					}
+				}
+				if(!found) {
+					return false;
+				}
+			}
+		}		
+		return true;		
+
 	}
 	
 	/**
@@ -89,7 +131,36 @@ public class Sudoku {
 	 * @return
 	 */
 	public boolean solve() {
-		return false;
+		//if board is full
+		// 	return check
+		if(isFull()) {
+			return check();
+		}
+		
+		//find the next empty position
+		for(int r = 0; r < board.length; r++) {			
+			for(int c = 0; c < board[r].length; c++) {
+				if(board[r][c] == 0) {
+					//for each possible value (1-9)
+					for(int i = 1; i <= 9; i++) {
+						//	set the position to have the value
+						board[r][c] = i;
+						//	result = recurse
+						boolean result = solve();
+						//	if result
+						//		return true
+						if(result) {
+							return true;
+						}
+					}
+					//reset the cell to be 0
+					//return false
+					board[r][c] = 0;
+					return false;
+				}				
+			}
+		}
+		return false;		
 	}
 
 	/**
@@ -97,12 +168,14 @@ public class Sudoku {
 	 */
 	public void printBoard() {
 		System.out.println("****************");
+		
 		for(int[] row: board) {
 			for(int i: row) {
 				System.out.print(i + " ");
 			}
 			System.out.println();
 		}
+		
 		System.out.println("****************");
 	}
 	
