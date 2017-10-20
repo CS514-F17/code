@@ -1,25 +1,33 @@
 
-public class Node {
+public class Node<T> {
 	
-	private Comparable data;
-	private Node next;
+	private Comparable<T> data;
+	private Node<T> next;
 
-	public Node(Comparable data) {
+	public Node(Comparable<T> data) {
 //		this.data = data;
 //		this.next = null;
 		this(data, null);
 	}
 	
-	public Node(Comparable data, Node next) {
+	public Node(Comparable<T> data, Node<T> next) {
 		this.data = data;
 		this.next = next;
 	}
 
-	public void setData(Comparable data) {
+	public Comparable<T> getData() {
+		return data;
+	}
+
+	public Node<T> getNext() {
+		return next;
+	}
+
+	public void setData(Comparable<T> data) {
 		this.data = data;
 	}
 
-	public void setNext(Node next) {
+	public void setNext(Node<T> next) {
 		this.next = next;
 	}
 
