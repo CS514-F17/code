@@ -15,15 +15,15 @@ public class BasicThreads {
 		t2.start();
 
 		/* TBD: using join */
-		try {
-
-			t1.join();
-			t2.join();
-
-
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		try {
+//
+//			t1.join();
+//			t2.join();
+//
+//
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 
 
 		System.out.println("Finished");
