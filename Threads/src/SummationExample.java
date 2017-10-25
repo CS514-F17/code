@@ -15,7 +15,7 @@ public class SummationExample {
 //		ArrayList<Thread> threadList = new ArrayList<>();
 		
 		/* TBD: executor service */		
-//		ExecutorService threadPool = Executors.newFixedThreadPool(10);
+//		ExecutorService threadPool = Executors.newFixedThreadPool(20);
 		
 		
 		long start = System.currentTimeMillis(); //retrieve current time when starting calculations
