@@ -1,12 +1,15 @@
 
 public class Lock {
 
-	private boolean isHeld;
+	private volatile boolean isHeld;
 	
 	public Lock() {
 		isHeld = false;
-	}
+	}	
 	
+	public  void setIsHeld(boolean newValue) {
+		isHeld = newValue;
+	}
 	
 	
 	public synchronized void lock() {

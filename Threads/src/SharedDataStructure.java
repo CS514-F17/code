@@ -12,12 +12,12 @@ public class SharedDataStructure {
 		this.numbers = new ArrayList<Integer>();
 		this.rwl = new ReentrantReadWriteLock();
 	}	
-
+	
 	//write method
 	public void addNumber(int number) {
 		this.rwl.writeLock().lock();
 		this.numbers.add(number);
-		this.rwl.writeLock().unlock();
+		this.rwl.writeLock().unlock();	
 	}	
 
 	//read method
