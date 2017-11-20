@@ -35,6 +35,7 @@ public class ServletExampleServer {
         handler.addServletWithMapping(HelloServlet.class, "/hello");
         handler.addServletWithMapping(GoodbyeServlet.class, "/goodbye");
         handler.addServletWithMapping(EchoServlet.class, "/echo");
+        handler.addServletWithMapping(CookieServlet.class, "/cookie");
  
         // Start things up!
         server.start();
